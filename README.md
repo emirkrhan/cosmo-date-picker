@@ -67,7 +67,7 @@ You need to provide a date value and an onChange function to handle updates. Cos
 | `inputWidth`           | string   | `'18rem'`     | Sets the width of the input field, allowing flexible customization.    |
 | `inputFontSize`        | string   | `'0.75rem'`   | Specifies the font size for the text displayed inside the input field. |
 | `inputFontWeight`      | string   | `'500'`       | Defines the font weight for the text displayed inside the input field. |
-| `inputBackgroundColor` | string   | `white`       | Sets the background color of the input field.                          |
+| `inputBackgroundColor` | string   | `'white'`     | Sets the background color of the input field.                          |
 
 ## LICENSE
 

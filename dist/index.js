@@ -23,7 +23,8 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
     dayBorderRadius = _ref.dayBorderRadius,
     inputWidth = _ref.inputWidth,
     inputFontSize = _ref.inputFontSize,
-    inputFontWeight = _ref.inputFontWeight;
+    inputFontWeight = _ref.inputFontWeight,
+    inputBackgroundColor = _ref.inputBackgroundColor;
   var _useState = (0, _react.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     dateDropdown = _useState2[0],
@@ -212,7 +213,7 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
       position: 'relative',
       width: inputWidth || '100%',
       height: '2.5rem',
-      backgroundColor: 'white',
+      backgroundColor: inputBackgroundColor || 'white',
       paddingLeft: '1rem',
       paddingRight: '1rem',
       fontSize: inputFontSize || '0.75rem',
