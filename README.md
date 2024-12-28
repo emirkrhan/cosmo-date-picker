@@ -56,17 +56,18 @@ You need to provide a date value and an onChange function to handle updates. Cos
 
 ## Props
 
-| Property          | Type     | Default Value | Description                                                            |
-| ----------------- | -------- | ------------- | ---------------------------------------------------------------------- |
-| `value`           | string   | `''`          | The current date value in string format.                               |
-| `onChange`        | function | `undefined`   | Callback function triggered when the date value changes.               |
-| `icon`            | boolean  | `true`        | Displays an icon at the end of the input field when set to `true`.     |
-| `startYear`       | number   | `undefined`   | Defines the first selectable year in the calendar.                     |
-| `endYear`         | number   | `undefined`   | Defines the last selectable year in the calendar.                      |
-| `dayBorderRadius` | string   | `5px`         | Specifies the border-radius of each day cell in the calendar view.     |
-| `inputWidth`      | string   | `'18rem'`     | Sets the width of the input field, allowing flexible customization.    |
-| `inputFontSize`   | string   | `'0.75rem'`   | Specifies the font size for the text displayed inside the input field. |
-| `inputFontWeight` | string   | `'500'`       | Defines the font weight for the text displayed inside the input field. |
+| Property               | Type     | Default Value | Description                                                            |
+| ---------------------- | -------- | ------------- | ---------------------------------------------------------------------- |
+| `value`                | string   | `''`          | The current date value in string format.                               |
+| `onChange`             | function | `undefined`   | Callback function triggered when the date value changes.               |
+| `icon`                 | boolean  | `false`       | Displays an icon at the end of the input field when set to `true`.     |
+| `startYear`            | number   | `undefined`   | Defines the first selectable year in the calendar.                     |
+| `endYear`              | number   | `undefined`   | Defines the last selectable year in the calendar.                      |
+| `dayBorderRadius`      | string   | `5px`         | Specifies the border-radius of each day cell in the calendar view.     |
+| `inputWidth`           | string   | `'18rem'`     | Sets the width of the input field, allowing flexible customization.    |
+| `inputFontSize`        | string   | `'0.75rem'`   | Specifies the font size for the text displayed inside the input field. |
+| `inputFontWeight`      | string   | `'500'`       | Defines the font weight for the text displayed inside the input field. |
+| `inputBackgroundColor` | string   | `white`       | Sets the background color of the input field.                          |
 
 ## LICENSE
 

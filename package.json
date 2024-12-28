@@ -1,6 +1,6 @@
 {
   "name": "cosmo-date-picker",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Cosmo Picker is a lightweight and highly customizable date picker designed for React applications.",
   "main": "dist/index.js",
   "scripts": {

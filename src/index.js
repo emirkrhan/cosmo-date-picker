@@ -9,7 +9,8 @@ export const CosmoPicker = ({
   dayBorderRadius,
   inputWidth,
   inputFontSize,
-  inputFontWeight
+  inputFontWeight,
+  inputBackgroundColor
 }) => {
   const [dateDropdown, setDateDropdown] = useState(false)
   const [view, setView] = useState('day')
@@ -227,7 +228,7 @@ export const CosmoPicker = ({
         position: 'relative',
         width: inputWidth || '100%',
         height: '2.5rem',
-        backgroundColor: 'white',
+        backgroundColor: inputBackgroundColor || 'white',
         paddingLeft: '1rem',
         paddingRight: '1rem',
         fontSize: inputFontSize || '0.75rem',
