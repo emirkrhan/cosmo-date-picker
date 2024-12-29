@@ -24,7 +24,22 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
     inputWidth = _ref.inputWidth,
     inputFontSize = _ref.inputFontSize,
     inputFontWeight = _ref.inputFontWeight,
-    inputBackgroundColor = _ref.inputBackgroundColor;
+    inputBackgroundColor = _ref.inputBackgroundColor,
+    inputTextColor = _ref.inputTextColor,
+    placeholderColor = _ref.placeholderColor,
+    calendarBackgroundColor = _ref.calendarBackgroundColor,
+    yearBackgroundColor = _ref.yearBackgroundColor,
+    calendarTextColor = _ref.calendarTextColor,
+    dayBackgroundColor = _ref.dayBackgroundColor,
+    dayHoverColor = _ref.dayHoverColor,
+    selectedDayBackgroundColor = _ref.selectedDayBackgroundColor,
+    selectedDayTextColor = _ref.selectedDayTextColor,
+    yearHoverColor = _ref.yearHoverColor,
+    arrowHoverColor = _ref.arrowHoverColor,
+    arrowColor = _ref.arrowColor,
+    calendarFontWeight = _ref.calendarFontWeight,
+    scrollBarColor = _ref.scrollBarColor,
+    iconColor = _ref.iconColor;
   var _useState = (0, _react.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     dateDropdown = _useState2[0],
@@ -55,7 +70,7 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
     hoverArrow = _useState14[0],
     setHoverArrow = _useState14[1];
   var style = document.createElement('style');
-  style.textContent = "\n  .year-picker::-webkit-scrollbar {\n    width: 4px;\n  }\n\n  .year-picker::-webkit-scrollbar-track {\n    background: transparent;\n  }\n\n  .year-picker::-webkit-scrollbar-thumb {\n    background: #bbbbbb;\n    border-radius: 5px;\n  }\n\n  .year-picker::-webkit-scrollbar-thumb:hover {\n    background: #929292;\n  }\n";
+  style.textContent = "\n  .year-picker::-webkit-scrollbar {\n    width: 4px;\n  }\n\n  .year-picker::-webkit-scrollbar-track {\n    background: transparent;\n  }\n\n  .year-picker::-webkit-scrollbar-thumb {\n    background: ".concat(scrollBarColor || '#bbbbbb', ";\n    border-radius: 5px;\n  }\n");
   document.head.appendChild(style);
   var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   function getYearRange(startYear, endYear) {
@@ -151,8 +166,8 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
           fontSize: '0.7rem',
           cursor: 'pointer',
           transition: '0.15s',
-          backgroundColor: d === day && value && typeof value === 'string' && monthNames[month] === value.split(' ')[1] && year === parseInt(value.split(' ')[2]) ? 'black' : hoverDay === d ? '#d1d5db' : '#f3f4f6',
-          color: d === day && value && typeof value === 'string' && monthNames[month] === value.split(' ')[1] && year === parseInt(value.split(' ')[2]) ? 'white' : 'inherit'
+          backgroundColor: d === day && value && typeof value === 'string' && monthNames[month] === value.split(' ')[1] && year === parseInt(value.split(' ')[2]) ? selectedDayBackgroundColor || 'black' : hoverDay === d ? dayHoverColor || '#d1d5db' : dayBackgroundColor || '#f3f4f6',
+          color: d === day && value && typeof value === 'string' && monthNames[month] === value.split(' ')[1] && year === parseInt(value.split(' ')[2]) ? selectedDayTextColor || 'white' : 'inherit'
         },
         onMouseEnter: function onMouseEnter() {
           return setHoverDay(d);
@@ -191,12 +206,10 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
           alignItems: 'center',
           justifyContent: 'center',
           borderRadius: '0.25rem',
-          backgroundColor: hoverYear === y ? '#d1d5db' : '#f3f4f6',
-          color: hoverYear === y ? 'black' : 'inherit',
+          backgroundColor: hoverYear === y ? yearHoverColor || '#d1d5db' : yearBackgroundColor || '#f3f4f6',
           transition: '0.15s',
           fontSize: '0.75rem',
-          cursor: 'pointer',
-          fontWeight: '400'
+          cursor: 'pointer'
         },
         onMouseEnter: function onMouseEnter() {
           return setHoverYear(y);
@@ -232,7 +245,7 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
       justifyContent: 'space-between',
       alignItems: 'center',
       height: '100%',
-      color: value ? 'black' : '#9ca3af'
+      color: value ? inputTextColor || 'black' : placeholderColor || '#9ca3af'
     }
   }, value || 'Date', icon && /*#__PURE__*/_react["default"].createElement("svg", {
     id: "Layer_1",
@@ -240,7 +253,8 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 512 512",
     width: "16px",
-    height: "16px"
+    height: "16px",
+    fill: iconColor || 'black'
   }, /*#__PURE__*/_react["default"].createElement("title", null, "Date"), /*#__PURE__*/_react["default"].createElement("path", {
     d: "M464.3,103.08a64,64,0,0,0-59-39.08H362.67A21.34,21.34,0,0,0,320,64H192a21.34,21.34,0,0,0-42.67,0H106.67a63.94,63.94,0,0,0-64,64V405.33a63.94,63.94,0,0,0,64,64H405.33a63.94,63.94,0,0,0,64-64V128A63.7,63.7,0,0,0,464.3,103.08ZM426.67,405.33a21.36,21.36,0,0,1-21.34,21.34H106.67a21.36,21.36,0,0,1-21.34-21.34v-192H426.67Zm0-234.66H85.33V128a21.36,21.36,0,0,1,21.34-21.33h42.66a21.34,21.34,0,0,0,42.67,0H320a21.34,21.34,0,0,0,42.67,0h42.66A21.36,21.36,0,0,1,426.67,128Z"
   }), /*#__PURE__*/_react["default"].createElement("path", {
@@ -259,13 +273,15 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
       top: '3rem',
       left: '0',
       width: '18rem',
-      backgroundColor: 'white',
+      backgroundColor: calendarBackgroundColor || 'white',
       borderRadius: '0.375rem',
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
       display: 'flex',
       flexDirection: 'column',
       gap: '0.7rem',
-      padding: '1rem'
+      padding: '1rem',
+      color: calendarTextColor || 'black',
+      fontWeight: calendarFontWeight || '600'
     }
   }, /*#__PURE__*/_react["default"].createElement("div", {
     style: {
@@ -284,10 +300,9 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#f3f4f6',
+      backgroundColor: yearBackgroundColor || '#f3f4f6',
       borderRadius: '0.25rem',
       fontSize: '0.75rem',
-      fontWeight: '600',
       cursor: 'pointer'
     }
   }, year), /*#__PURE__*/_react["default"].createElement("div", {
@@ -308,7 +323,7 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
       justifyContent: 'center',
       borderRadius: '9999px',
       transition: '0.15s',
-      backgroundColor: hoverArrow === 0 ? '#e5e7eb' : 'inherit',
+      backgroundColor: hoverArrow === 0 ? arrowHoverColor || '#e5e7eb' : 'inherit',
       cursor: 'pointer'
     },
     onMouseEnter: function onMouseEnter() {
@@ -321,7 +336,7 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 24 24",
     fill: "none",
-    stroke: "black",
+    stroke: arrowColor || 'black',
     strokeWidth: "2",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -335,7 +350,6 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
     style: {
       width: '7rem',
       textAlign: 'center',
-      fontWeight: '600',
       fontSize: '0.75rem'
     }
   }, monthNames[month]), /*#__PURE__*/_react["default"].createElement("button", {
@@ -350,7 +364,7 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
       justifyContent: 'center',
       borderRadius: '9999px',
       transition: '0.15s',
-      backgroundColor: hoverArrow === 1 ? '#e5e7eb' : 'inherit',
+      backgroundColor: hoverArrow === 1 ? arrowHoverColor || '#e5e7eb' : 'inherit',
       cursor: 'pointer'
     },
     onMouseEnter: function onMouseEnter() {
@@ -363,7 +377,7 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 24 24",
     fill: "none",
-    stroke: "black",
+    stroke: arrowColor || 'black',
     strokeWidth: "2",
     strokeLinecap: "round",
     strokeLinejoin: "round",

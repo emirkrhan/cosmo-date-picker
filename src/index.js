@@ -10,7 +10,22 @@ export const CosmoPicker = ({
   inputWidth,
   inputFontSize,
   inputFontWeight,
-  inputBackgroundColor
+  inputBackgroundColor,
+  inputTextColor,
+  placeholderColor,
+  calendarBackgroundColor,
+  yearBackgroundColor,
+  calendarTextColor,
+  dayBackgroundColor,
+  dayHoverColor,
+  selectedDayBackgroundColor,
+  selectedDayTextColor,
+  yearHoverColor,
+  arrowHoverColor,
+  arrowColor,
+  calendarFontWeight,
+  scrollBarColor,
+  iconColor
 }) => {
   const [dateDropdown, setDateDropdown] = useState(false)
   const [view, setView] = useState('day')
@@ -33,12 +48,8 @@ export const CosmoPicker = ({
   }
 
   .year-picker::-webkit-scrollbar-thumb {
-    background: #bbbbbb;
+    background: ${scrollBarColor || '#bbbbbb'};
     border-radius: 5px;
-  }
-
-  .year-picker::-webkit-scrollbar-thumb:hover {
-    background: #929292;
   }
 `
   document.head.appendChild(style)
@@ -153,10 +164,10 @@ export const CosmoPicker = ({
               typeof value === 'string' &&
               monthNames[month] === value.split(' ')[1] &&
               year === parseInt(value.split(' ')[2])
-                ? 'black'
+                ? selectedDayBackgroundColor || 'black'
                 : hoverDay === d
-                ? '#d1d5db'
-                : '#f3f4f6',
+                ? dayHoverColor || '#d1d5db'
+                : dayBackgroundColor || '#f3f4f6',
 
             color:
               d === day &&
@@ -164,7 +175,7 @@ export const CosmoPicker = ({
               typeof value === 'string' &&
               monthNames[month] === value.split(' ')[1] &&
               year === parseInt(value.split(' ')[2])
-                ? 'white'
+                ? selectedDayTextColor || 'white'
                 : 'inherit'
           }}
           onMouseEnter={() => setHoverDay(d)}
@@ -205,12 +216,14 @@ export const CosmoPicker = ({
             alignItems: 'center',
             justifyContent: 'center',
             borderRadius: '0.25rem',
-            backgroundColor: hoverYear === y ? '#d1d5db' : '#f3f4f6',
-            color: hoverYear === y ? 'black' : 'inherit',
+            backgroundColor:
+              hoverYear === y
+                ? yearHoverColor || '#d1d5db'
+                : yearBackgroundColor || '#f3f4f6',
+
             transition: '0.15s',
             fontSize: '0.75rem',
-            cursor: 'pointer',
-            fontWeight: '400'
+            cursor: 'pointer'
           }}
           onMouseEnter={() => setHoverYear(y)}
           onMouseLeave={() => setHoverYear(null)}
@@ -244,7 +257,9 @@ export const CosmoPicker = ({
           justifyContent: 'space-between',
           alignItems: 'center',
           height: '100%',
-          color: value ? 'black' : '#9ca3af'
+          color: value
+            ? inputTextColor || 'black'
+            : placeholderColor || '#9ca3af'
         }}
       >
         {value || 'Date'}
@@ -256,6 +271,7 @@ export const CosmoPicker = ({
             viewBox='0 0 512 512'
             width='16px'
             height='16px'
+            fill={iconColor || 'black'}
           >
             <title>Date</title>
             <path d='M464.3,103.08a64,64,0,0,0-59-39.08H362.67A21.34,21.34,0,0,0,320,64H192a21.34,21.34,0,0,0-42.67,0H106.67a63.94,63.94,0,0,0-64,64V405.33a63.94,63.94,0,0,0,64,64H405.33a63.94,63.94,0,0,0,64-64V128A63.7,63.7,0,0,0,464.3,103.08ZM426.67,405.33a21.36,21.36,0,0,1-21.34,21.34H106.67a21.36,21.36,0,0,1-21.34-21.34v-192H426.67Zm0-234.66H85.33V128a21.36,21.36,0,0,1,21.34-21.33h42.66a21.34,21.34,0,0,0,42.67,0H320a21.34,21.34,0,0,0,42.67,0h42.66A21.36,21.36,0,0,1,426.67,128Z'></path>
@@ -274,13 +290,15 @@ export const CosmoPicker = ({
             top: '3rem',
             left: '0',
             width: '18rem',
-            backgroundColor: 'white',
+            backgroundColor: calendarBackgroundColor || 'white',
             borderRadius: '0.375rem',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
             display: 'flex',
             flexDirection: 'column',
             gap: '0.7rem',
-            padding: '1rem'
+            padding: '1rem',
+            color: calendarTextColor || 'black',
+            fontWeight: calendarFontWeight || '600'
           }}
         >
           <div
@@ -299,10 +317,9 @@ export const CosmoPicker = ({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: '#f3f4f6',
+                backgroundColor: yearBackgroundColor || '#f3f4f6',
                 borderRadius: '0.25rem',
                 fontSize: '0.75rem',
-                fontWeight: '600',
                 cursor: 'pointer'
               }}
             >
@@ -325,7 +342,8 @@ export const CosmoPicker = ({
                   justifyContent: 'center',
                   borderRadius: '9999px',
                   transition: '0.15s',
-                  backgroundColor: hoverArrow === 0 ? '#e5e7eb' : 'inherit',
+                  backgroundColor:
+                    hoverArrow === 0 ? arrowHoverColor || '#e5e7eb' : 'inherit',
                   cursor: 'pointer'
                 }}
                 onMouseEnter={() => setHoverArrow(0)}
@@ -335,7 +353,7 @@ export const CosmoPicker = ({
                   xmlns='http://www.w3.org/2000/svg'
                   viewBox='0 0 24 24'
                   fill='none'
-                  stroke='black'
+                  stroke={arrowColor || 'black'}
                   strokeWidth='2'
                   strokeLinecap='round'
                   strokeLinejoin='round'
@@ -350,7 +368,6 @@ export const CosmoPicker = ({
                 style={{
                   width: '7rem',
                   textAlign: 'center',
-                  fontWeight: '600',
                   fontSize: '0.75rem'
                 }}
               >
@@ -366,7 +383,8 @@ export const CosmoPicker = ({
                   justifyContent: 'center',
                   borderRadius: '9999px',
                   transition: '0.15s',
-                  backgroundColor: hoverArrow === 1 ? '#e5e7eb' : 'inherit',
+                  backgroundColor:
+                    hoverArrow === 1 ? arrowHoverColor || '#e5e7eb' : 'inherit',
                   cursor: 'pointer'
                 }}
                 onMouseEnter={() => setHoverArrow(1)}
@@ -376,7 +394,7 @@ export const CosmoPicker = ({
                   xmlns='http://www.w3.org/2000/svg'
                   viewBox='0 0 24 24'
                   fill='none'
-                  stroke='black'
+                  stroke={arrowColor || 'black'}
                   strokeWidth='2'
                   strokeLinecap='round'
                   strokeLinejoin='round'
