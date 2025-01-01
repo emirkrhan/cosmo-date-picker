@@ -1,6 +1,6 @@
 {
   "name": "cosmo-picker",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Cosmo Picker is a lightweight and highly customizable date picker designed for React applications.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,7 +16,13 @@
     "picker",
     "cosmo",
     "custom",
-    "react"
+    "react",
+    "date picker",
+    "calendar",
+    "react date picker",
+    "react calendar",
+    "customizable date picker",
+    "lightweight"
   ],
   "author": "Emirhan Körhan",
   "license": "MIT",
@@ -34,7 +40,7 @@
     "cosmo-picker": "file:"
   },
   "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   }
 }

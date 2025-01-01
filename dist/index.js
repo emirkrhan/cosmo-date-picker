@@ -39,7 +39,8 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
     arrowColor = _ref.arrowColor,
     calendarFontWeight = _ref.calendarFontWeight,
     scrollBarColor = _ref.scrollBarColor,
-    iconColor = _ref.iconColor;
+    iconColor = _ref.iconColor,
+    zIndex = _ref.zIndex;
   var _useState = (0, _react.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     dateDropdown = _useState2[0],
@@ -232,6 +233,7 @@ var CosmoPicker = exports.CosmoPicker = function CosmoPicker(_ref) {
       fontSize: inputFontSize || '0.75rem',
       fontWeight: inputFontWeight || '400',
       cursor: 'pointer',
+      zIndex: zIndex || 100,
       borderRadius: '0.25rem'
     }
   }, /*#__PURE__*/_react["default"].createElement("div", {

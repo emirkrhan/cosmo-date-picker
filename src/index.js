@@ -25,7 +25,8 @@ export const CosmoPicker = ({
   arrowColor,
   calendarFontWeight,
   scrollBarColor,
-  iconColor
+  iconColor,
+  zIndex
 }) => {
   const [dateDropdown, setDateDropdown] = useState(false)
   const [view, setView] = useState('day')
@@ -247,6 +248,7 @@ export const CosmoPicker = ({
         fontSize: inputFontSize || '0.75rem',
         fontWeight: inputFontWeight || '400',
         cursor: 'pointer',
+        zIndex: zIndex || 100,
         borderRadius: '0.25rem'
       }}
     >
